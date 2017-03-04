@@ -1,0 +1,93 @@
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>Experimento</title>
+  <meta name="theme-color" content="#303F9F">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.orange-indigo.min.css">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.orange-indigo.min.css">
+  <script defer="" src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+  <link rel="stylesheet" href="styles/main.css"></head>
+<body>
+   
+<div class="mdl-layout__container">
+  <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header is-upgraded is-small-screen" data-upgraded=",MaterialLayout">
+
+  <header class="mdl-layout__header mdl-color-text--white mdl-color--light-blue-700 is-casting-shadow">
+    <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
+      <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
+        <h3>Experimento</h3>
+      </div>
+      <div id="user-container">
+        <div id="user-name"></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="mdl-layout__content mdl-color--grey-100" >
+    <div id="messages-card-container" class="mdl-cell mdl-cell--12-col mdl-grid">
+
+      <div style="text-align: center;width: 100%;margin-bottom: 10px;">
+        <h4><u>PARTE 1 – TOMADA DE DECISÃO</u></h4>
+      </div>
+
+      <div>
+        Agora, digite o resultado do lançamento do dado.
+        <br/><br/>
+        Número visto: <input type="text" id="decisao"/>
+        <span id="msg-errada" style="padding-left: 10px;color: red;" hidden="">Campo obrigatório</span>
+        <span id="msg-certa"  style="padding-left: 10px;color: green;" hidden="">Decisão computada</span>
+        <span id="error" style="padding-left: 10px;color: red;" hidden="">Erro ao salvar, tente novamente</span>
+        <br/><br/>
+        O resultado do lançamento do dado que você informou determinará o seu pagamento, como abaixo:
+        <br/><br/>
+        <table  class="mdl-data-table">
+            <tr>
+                <td class="mdl-data-table__cell--non-numeric">NÚMERO DO DADO INSERIDO</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td class="mdl-data-table__cell--non-numeric">PONTOS</td>
+                <td>1 Ponto</td>
+                <td>2 Pontos</td>
+                <td>3 Pontos</td>
+                <td>4 Pontos</td>
+                <td>5 Pontos</td>
+                <td>6 Pontos</td>
+            </tr>
+        </table>
+        <br/><br/>
+        <div style="text-align: center;width: 100%;">
+          <button id="save" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+          SALVAR
+          </button>
+          <a id="link" hidden=""
+             class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+          PRÓXIMO
+          </a>
+        </div>
+        <br/><br/>
+      </div></div></main></div>
+
+  <script src="https://www.gstatic.com/firebasejs/3.6.5/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyBosFyyVJlEMDxXejrjmr4FIbR3OwcLYkM",
+      authDomain: "experimento-desonestidade.firebaseapp.com",
+      databaseURL: "https://experimento-desonestidade.firebaseio.com",
+      storageBucket: "experimento-desonestidade.appspot.com",
+      messagingSenderId: "860998453658"
+    };
+    firebase.initializeApp(config);
+  </script>
+  <script src="js/parte1-decisao.js"></script>
+</body>
+</html>

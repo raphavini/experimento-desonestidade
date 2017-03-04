@@ -1,0 +1,98 @@
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>Experimento</title>
+  <meta name="theme-color" content="#303F9F">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.orange-indigo.min.css">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.orange-indigo.min.css">
+  <script defer="" src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  
+<div class="mdl-layout__container">
+  <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header is-upgraded is-small-screen" data-upgraded=",MaterialLayout">
+
+  <header class="mdl-layout__header mdl-color-text--white mdl-color--light-blue-700 is-casting-shadow">
+    <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
+      <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
+        <h3>Experimento</h3>
+      </div>
+      <div id="user-container">
+        <div id="user-name"></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="mdl-layout__content mdl-color--grey-100" >
+    <div id="messages-card-container" class="mdl-cell mdl-cell--12-col mdl-grid">
+
+      <div style="text-align: center;width: 100%;margin-bottom: 10px;">
+        <h4><u>INSTRUÇÕES GERAIS:</u></h4>
+
+        <b>Bem-vindo a esse experimento e obrigado por participar!</b>
+        <br/>Por favor, a partir de agora, NÃO FALE com nenhum outro participante!
+      </div>
+
+      <div>
+
+        <b><u>Procedimentos Gerais:</u></b>
+        <br/><br/>
+        Nesse experimento, estamos estudando tomadas de decisões econômicas. Você pode ganhar dinheiro participando. O que você irá ganhar será pago ao final do experimento, de forma individual e privada, e em dinheiro. O experimento consiste em duas partes no qual você deve tomar decisões independentes. No começo de cada etapa, você receberá instruções detalhadas de como proceder. Se você tiver qualquer dúvida durante o experimento, por favor, levante a sua mão. Um instrutor irá até você e responderá a sua dúvida, em particular.
+        <br/><br/>
+        Durante o experimento, você e os outros participantes terão que tomar decisões e, possivelmente, você terá que interagir (através do chat) com outros participantes também. O seu pagamento será determinado por suas decisões e pelas decisões dos outros participantes. 
+        <br/><br/>
+
+        <b><u>Pagamento:</u></b>
+        <br/><br/>
+        Em algumas partes do experimento, não será mencionado sobre “Reais”, mas sim sobre “pontos”. Seus ganhos serão calculados em pontos. No final do experimento, os pontos serão convertidos em Reais, com uma taxa de conversão de:
+        <br/><br/>
+        <div style="text-align: center;width: 100%;">
+        <span style="font-size: 24px"><b>1 ponto = 1 Real</b></span>
+        </div>
+        <br/>
+        O seu pagamento acontecerá no final do experimento. Cada participante será chamado pelo seu código de identificação, para pagamentos individuais. Nenhum outro participante saberá sobre o seu pagamento e você também não saberá sobre o pagamento de nenhum outro participante. 
+        <br/><br/>
+
+        <b><u>Anonimato:</u></b>
+        <br/><br/>
+        A análise do experimento será feita anonimamente. 
+        <br/><b>NÃO SERÁ REALIZADO NENHUM LINK ENTRE O SEU NOME E OS DADOS GERADOS NO EXPERIMENTO!</b>
+        <br/>Você não saberá a identidade de nenhum participante, nem antes nem após o término do experimento.
+        <br/><br/>
+        Você não saberá a identidade de nenhum participante, nem antes nem após o término do experimento. Também os outros participantes não saberão a sua identidade. Durante todo o experimento, sua única forma de identificação será através do código de identificação que você receberá no início do experimento. 
+        <br/><br/>
+        Ao teclar em “OK”, você está concordando em participar do experimento: 
+        <br/><br/>
+
+        <div style="text-align: center;width: 100%;">
+          <a href="questionario.html" id="button-link"
+            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+          OK
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+  <br/><br/>
+  </div>
+</div>
+  <script src="https://www.gstatic.com/firebasejs/3.6.5/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyBosFyyVJlEMDxXejrjmr4FIbR3OwcLYkM",
+      authDomain: "experimento-desonestidade.firebaseapp.com",
+      databaseURL: "https://experimento-desonestidade.firebaseio.com",
+      storageBucket: "experimento-desonestidade.appspot.com",
+      messagingSenderId: "860998453658"
+    };
+    firebase.initializeApp(config);
+  </script>
+  <script src="js/geral.js"></script>
+</body>
+</html>

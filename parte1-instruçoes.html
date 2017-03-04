@@ -1,0 +1,128 @@
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>Experimento</title>
+  <meta name="theme-color" content="#303F9F">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.orange-indigo.min.css">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.orange-indigo.min.css">
+  <script defer="" src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+<div class="mdl-layout__container">
+  <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header is-upgraded is-small-screen" data-upgraded=",MaterialLayout">
+
+  <header class="mdl-layout__header mdl-color-text--white mdl-color--light-blue-700 is-casting-shadow">
+    <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
+      <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
+        <h3>Experimento</h3>
+      </div>
+      <div id="user-container">
+        <div id="user-name"></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="mdl-layout__content mdl-color--grey-100" >
+    <div id="messages-card-container" class="mdl-cell mdl-cell--12-col mdl-grid">
+
+      <div style="text-align: center;width: 100%;margin-bottom: 10px;">
+        <h4><u>PARTE 1 - INSTRUÇÕES:</u></h4>
+      </div>
+
+      <div>      
+
+        <b><u>Lançamento dos dados:</u></b>
+        <br/><br/>
+        Na parte 1 do experimento, você assistirá a um vídeo com o lançamento de um dado. O vídeo que você verá será selecionado aleatoriamente pelo computador e cada um dos seis números possuí igual probabilidade de aparecer na tela.
+        <br/><br/>
+
+        <b><u>Sua tarefa:</u></b>
+        <br/><br/>
+        Sua tarefa será memorizar o resultado do lançamento do dado e digitar na tela seguinte.
+        <br/><br/>
+
+        <b><u>Seus pontos para essa tarefa:</u></b>
+        <br/><br/>
+        O número do dado que você <b><u>digitar</u></b>, determinará o seu pagamento, por exemplo:
+        <br/><br/>
+        <div>
+          <table class="mdl-data-table">
+              <thead>
+                <tr>
+                    <td class="mdl-data-table__cell--non-numeric">NÚMERO DO DADO INSERIDO</td>
+                    <td class="mdl-data-table__cell--non-numeric">PONTOS</td>
+                </tr>
+              </thead>
+              <tr>
+                  <td>1</td>
+                  <td>1 Ponto</td>
+              </tr>
+              <tr>
+                  <td>2</td>
+                  <td>2 Pontos</td>
+              </tr>
+              </tr>
+              <tr>
+                  <td>3</td>
+                  <td>3 Pontos</td>
+              </tr>
+              <tr>
+                  <td>4</td>
+                  <td>4 Pontos</td>
+              </tr>
+              <tr>
+                  <td>5</td>
+                  <td>5 Pontos</td>
+              </tr>
+              <tr>
+                  <td>6</td>
+                  <td>6 Pontos</td>
+              </tr>
+          </table>
+        </div>
+        <br/><br/>
+        <b><u>Compreendendo a tarefa:</u></b>
+        <br/><br/>
+        Suponha que você veja o número <img src="images/dado-2.jpg" width="50px"/> e você digite o número <b>“3”</b>.
+        <br/><br/>
+        Quantos pontos você irá receber? <input type="text" id="resposta"/>
+        <span id="msg-errada" style="padding-left: 10px;color: red;" hidden="">RESPOSTA ERRADA</span>
+        <span id="msg-certa"  style="padding-left: 10px;color: green;" hidden="">RESPOSTA CORRETA</span>
+        <br/><br/>
+
+        <div style="text-align: center;width: 100%;">
+          <button id="verificar-resposta"
+                  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                  VERIFICAR RESPOSTA
+          </button>
+          <a hidden=""
+             class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+             id="link">
+            PRÓXIMO
+          </a>
+        </div>
+        <br/><br/>
+</div>
+</div>
+</main>
+</div>
+</div>
+  <script src="https://www.gstatic.com/firebasejs/3.6.5/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyBosFyyVJlEMDxXejrjmr4FIbR3OwcLYkM",
+      authDomain: "experimento-desonestidade.firebaseapp.com",
+      databaseURL: "https://experimento-desonestidade.firebaseio.com",
+      storageBucket: "experimento-desonestidade.appspot.com",
+      messagingSenderId: "860998453658"
+    };
+    firebase.initializeApp(config);
+  </script>
+  <script src="js/parte1-instruçoes.js"></script>
+</body>
+</html>
