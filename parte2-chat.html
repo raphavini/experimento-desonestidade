@@ -40,10 +40,9 @@
               </div>
               <form id="message-form" action="#">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <input type="hidden" id="sala" alt="sala" value="S2">
-                  <input type="hidden" id="user-name" alt="user-name">
-                  <label class="mdl-textfield__label" for="message">Message...</label>
-                  <input class="mdl-textfield__input" type="text" id="message">
+                  <input type="hidden" id="sala" alt="sala">
+                  <label class="mdl-textfield__label" for="message" disabled>Message...</label>
+                  <input class="mdl-textfield__input" type="text" id="message" disabled>
                 </div>
                 <button id="submit" disabled type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
                 Send
@@ -52,7 +51,8 @@
             </div>
           </div>
           <div style="text-align: center;width: 100%;margin-bottom: 10px;">
-              <span id="txtCountdown" style="font-size: 30px">O chat termina em <span id="numberCountdown"></span></span>
+              <span id="txtWatting" style="font-size: 30px">Aguarde todos os participantes chegarem.</span>
+              <span id="txtCountdown" style="font-size: 30px" hidden="">O chat termina em <span id="numberCountdown"></span></span>
               <a id="btnProximo" 
                  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
                  style="display: none">
@@ -64,17 +64,7 @@
     </div>
   </div>
   <script src="https://www.gstatic.com/firebasejs/3.6.5/firebase.js"></script>
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyBosFyyVJlEMDxXejrjmr4FIbR3OwcLYkM",
-      authDomain: "experimento-desonestidade.firebaseapp.com",
-      databaseURL: "https://experimento-desonestidade.firebaseio.com",
-      storageBucket: "experimento-desonestidade.appspot.com",
-      messagingSenderId: "860998453658"
-    };
-    firebase.initializeApp(config);
-  </script>
   <script src="js/parte2-chat.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

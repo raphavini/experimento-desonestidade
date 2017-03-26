@@ -8,13 +8,15 @@
   <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.orange-indigo.min.css">
   <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.orange-indigo.min.css">
   <script defer="" src="https://code.getmdl.io/1.1.3/material.min.js"></script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+  <link rel="stylesheet" 
+        href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
   <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
 
 <div class="mdl-layout__container">
-  <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header is-upgraded is-small-screen" data-upgraded=",MaterialLayout">
+  <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header is-upgraded is-small-screen" 
+        data-upgraded=",MaterialLayout">
 
   <header class="mdl-layout__header mdl-color-text--white mdl-color--light-blue-700 is-casting-shadow">
     <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
@@ -37,30 +39,41 @@
       <div>
         A seguir são apresentadas questões pessoais, como gênero, instituição em que estuda, faixa salarial, dentre outros. Em nenhum momento haverá questões que tornem possível a sua identificação.
         <br/><br/>
-        1) Qual a sua idade?<br/>
-        <input type="number" id="input-idade"> ANOS
+        1) Qual a sua idade?
+        <br/><span id="msg1" style="padding-left: 10px;color: red;" hidden="">CAMPO OBRIGATÓRIO</span>
+        <br/><input type="number" id="input-idade"> ANOS
         <br/><br/>
 
-        2) Qual a instituição de ensino em que você estuda?<br/>
-        <input type="text" id="input-instituicao-ensino">
+        2) Qual a instituição de ensino em que você estuda?
+        <br/><span id="msg2" style="padding-left: 10px;color: red;" hidden="">CAMPO OBRIGATÓRIO</span>
+        <br/><input type="text" id="input-instituicao-ensino">
         <br/><br/>
-        3) Qual o curso que você estuda?<br/>
-        <input type="text" id="input-curso">
+        3) Qual o curso que você estuda?
+        <br/><span id="msg3" style="padding-left: 10px;color: red;" hidden="">CAMPO OBRIGATÓRIO</span>
+        <br/><input type="text" id="input-curso">
         <br/><br/>
-        4) Em média, quanto é a sua renda familiar mensal da sua residência?<br/>
-        <input type="radio" id="input-renda1"> Menor que R$1.000,00<br/>
-        <input type="radio" id="input-renda2"> Entre R$1.000,01 e R$3.000,00<br/>
-        <input type="radio" id="input-renda3">  Entre R$3.000,01 e R$5.000,00<br/>
-        <input type="radio" id="input-renda4">  Entre R$5.000,01 e R$7.000,00<br/>
-        <input type="radio" id="input-renda5">  Maior que R$7.000,01
+        4) Em média, quanto é a renda familiar mensal da sua residência?
+        <br/><span id="msg4" style="padding-left: 10px;color: red;" hidden="">CAMPO OBRIGATÓRIO</span>
+        <br/>
+       
+          <input name="renda" type="radio" id="input-renda1"> Menor que R$1.000,00<br/>
+          <input name="renda" type="radio" id="input-renda2"> Entre R$1.000,01 e R$3.000,00<br/>
+          <input name="renda" type="radio" id="input-renda3">  Entre R$3.000,01 e R$5.000,00<br/>
+          <input name="renda" type="radio" id="input-renda4">  Entre R$5.000,01 e R$7.000,00<br/>
+          <input name="renda" type="radio" id="input-renda5">  Maior que R$7.000,01
+       
         <br/><br/>
-        5) Qual o número de pessoas sustentadas com a renda familiar da sua residência (incluindo você)?<br/>
-        <input type="text" id="input-numero-pessoas">
+        5) Qual o número de pessoas sustentadas com a renda familiar da sua residência (incluindo você)?
+        <br/><span id="msg5" style="padding-left: 10px;color: red;" hidden="">CAMPO OBRIGATÓRIO</span>
+        <br/>
+        <input type="number" id="input-numero-pessoas">
         <br/><br/>
-        6) Você se considera de qual gênero?<br/>
-        <input type="radio" id="input-genero1">  Masculino<br/>
-        <input type="radio" id="input-genero2">  Feminino<br/>
-        <input type="radio" id="input-genero3">  Outros<br/>
+        6) Você se considera de qual gênero?
+        <br/><span id="msg6" style="padding-left: 10px;color: red;" hidden="">CAMPO OBRIGATÓRIO</span>
+        <br/>
+        <input name="genero" type="radio" id="input-genero1">  Masculino<br/>
+        <input name="genero" type="radio" id="input-genero2">  Feminino<br/>
+        <input name="genero" type="radio" id="input-genero3">  Outros<br/>
         <br/><br/>
         <div style="text-align: center;width: 100%;">
           <button id="button-send"
@@ -76,17 +89,7 @@
   </div>
   </div>
   <script src="https://www.gstatic.com/firebasejs/3.6.5/firebase.js"></script>
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyBosFyyVJlEMDxXejrjmr4FIbR3OwcLYkM",
-      authDomain: "experimento-desonestidade.firebaseapp.com",
-      databaseURL: "https://experimento-desonestidade.firebaseio.com",
-      storageBucket: "experimento-desonestidade.appspot.com",
-      messagingSenderId: "860998453658"
-    };
-    firebase.initializeApp(config);
-  </script>
   <script src="js/questionario.js"></script>  
+  <script src="js/main.js"></script>
 </body>
 </html>

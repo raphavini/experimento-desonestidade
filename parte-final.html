@@ -21,7 +21,7 @@
         <h3>Experimento</h3>
       </div>
       <div id="user-container">
-        <div hidden="" id="user-name"></div>
+        <div hidden=""></div>
       </div>
     </div>
   </header>
@@ -34,19 +34,48 @@
         <br/><br/>
         De acordo com as regras do experimento, você irá receber o valor de:
 
-        Código de Identificação: XXX
-        
-        Somatório de pontos: 9
-        Valor a receber em R$: 9 
-
-        Por favor, preencha a ficha sobre a mesa com os dados desta tela (somatório dos pontos e valor a receber) e entregue ao fiscal do experimento para receber o seu pagamento.
-
-        Muito obrigado pela sua participação!
         <br/><br/>
+
+        <center>
+
+          <table cellspacing="10">
+            <tr>
+              <td style="border: 2px solid;padding: 34px;text-align: center">
+                Código de Identificação<br/><span id="user-name"></span>
+              </td>
+              <td style="border: 2px solid;padding: 34px;text-align: center">
+                Somatório de pontos<br/><span id="pontos"></span>
+              </td>
+              <td style="border: 2px solid;padding: 34px;text-align: center">
+                Valor a receber<br/>R$ <span id="valor-receber"></span>
+              </td>
+            </tr>
+          </table>  
+
+        </center>        
+
+        <br/>
+        Por favor, preencha a ficha sobre a mesa com os dados desta tela 
+        (somatório dos pontos e valor a receber) 
+        <br/>
+        e entregue ao fiscal do experimento para receber o seu pagamento.
+        
+        <br/><br/>
+        <br/><br/>
+
+        <a href="obrigado.html" 
+          class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+          FINALIZAR
+        </a>
+
       </div>
     </div>
   </main>
   </div>
 </div> 
+
+  <script src="https://www.gstatic.com/firebasejs/3.6.5/firebase.js"></script>
+  <script src="js/parte-final.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

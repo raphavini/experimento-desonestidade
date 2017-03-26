@@ -37,7 +37,7 @@
         <div>
           Você terá a possibilidade de conversar com os outros membros do grupo via chat, para clarificar qual número cada membro do grupo irá informar.
           <br/><br/>
-          Você terá 3 minutos para trocar informações. A discussão em grupo terminará ao final de 3 minutos. Cada mensagem enviada será lida por todos os membros do grupo, não sendo possível o envio de mensagens individuais.
+          Você terá 2 minutos para trocar informações. A discussão em grupo terminará ao final de 2 minutos. Cada mensagem enviada será lida por todos os membros do grupo, não sendo possível o envio de mensagens individuais.
           <br/><br/>
           Os temas abordados na conversa são livre, contudo, não será permitido mencionar qualquer identificação pessoal. Isso inclui: nome, idade, gênero, matérias que estuda (incluindo nome de professores) ou tópicos similares que levem a sua identificação. Além disso, não será permitido que você aceite qualquer pagamento de outros membros do grupo. Se essas regras não forem seguidas, você será excluído do experimento e não receberá o pagamento.
           <br/><br/>
@@ -46,10 +46,9 @@
         </div>
         <div style="text-align: center;width: 100%;margin-bottom: 10px;">
           <br/><br/>
-          <span style="font-size: 40px">O chat começa em <span id="numberCountdown"></span></span>
-          <br/><br/><br/><br/>
-          <a hidden="" 
-             id="link"
+          <!--<span style="font-size: 40px">O chat começa em <span id="numberCountdown"></span></span>-->
+          <!--<br/><br/><br/><br/>-->
+          <a id="link"
              class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
             PRÓXIMO
           </a>
@@ -60,18 +59,8 @@
   </main>
   </div>
 </div>
-<script src="https://www.gstatic.com/firebasejs/3.6.5/firebase.js"></script>
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyBosFyyVJlEMDxXejrjmr4FIbR3OwcLYkM",
-      authDomain: "experimento-desonestidade.firebaseapp.com",
-      databaseURL: "https://experimento-desonestidade.firebaseio.com",
-      storageBucket: "experimento-desonestidade.appspot.com",
-      messagingSenderId: "860998453658"
-    };
-    firebase.initializeApp(config);
-  </script>
+  <script src="https://www.gstatic.com/firebasejs/3.6.5/firebase.js"></script>
   <script src="js/parte2-instrucoes-chat.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
