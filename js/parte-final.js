@@ -29,14 +29,14 @@ ParteFinal.prototype.getID = function() {
   });
 }
 ParteFinal.prototype.getPontos = function() {
-  firebase.database().ref('/experiment/'+this.experimentoChave+'/answer/' + QueryString.k).once('value').then(function(snapshot) {
+  firebase.database().ref('/experiment/'+this.experimentoChave+'/participant/'+ QueryString.k+'/answer/').once('value').then(function(snapshot) {
     var pontosParte1 = 0;
     if(snapshot.val().parte1) {
-      pontosParte1 = parseInt(snapshot.val().parte1.value);
+      pontosParte1 = parseInt(snapshot.val().parte1);
     }
     var pontosParte2 = 0;
     if(snapshot.val().parte2) {
-      pontosParte2 = parseInt(snapshot.val().parte2.value);
+      pontosParte2 = parseInt(snapshot.val().parte2);
     }    
     var pontos = pontosParte1+pontosParte2;
     ParteFinal.pontos.textContent=pontos;

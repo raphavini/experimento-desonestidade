@@ -177,7 +177,7 @@ Questionario.prototype.send = function() {
 
   if(qtdError==0) {
     
-    this.table = firebase.database().ref('/experiment/'+Questionario.experimentoChave+'/quiz/'+QueryString.k);
+    this.table = firebase.database().ref('/experiment/'+Questionario.experimentoChave+'/participant/'+QueryString.k+'/quiz/');
 
     var answer = {
       idade: Questionario.idade.value,
@@ -188,7 +188,7 @@ Questionario.prototype.send = function() {
       genero: generoEscolhido,
     };
 
-    this.table.push(answer).then(function(snapshot) {
+    this.table.set(answer).then(function(snapshot) {
       window.location.href="parte1-instruçoes.html?k="+QueryString.k+"&e="+QueryString.e;
     }).catch(function(error) {
         console.error('Error writing new message to Firebase Database', error);

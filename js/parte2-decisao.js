@@ -45,12 +45,9 @@ Parte2Decisao.prototype.save = function() {
   if(Parte2Decisao.decisao.value=='') {
     Parte2Decisao.msgErrada.removeAttribute('hidden');
   } else {
-    this.table = firebase.database().ref('/experiment/'+Parte2Decisao.experimentoChave+'/answer/'+QueryString.k+'/parte2');
+    this.table = firebase.database().ref('/experiment/'+Parte2Decisao.experimentoChave+'/participant/'+QueryString.k+'/answer/parte2');
 
-    var answer = {
-      value: Parte2Decisao.decisao.value,
-    };
-    this.table.set(answer).then(function(snapshot) {
+    this.table.set(Parte2Decisao.decisao.value).then(function(snapshot) {
       Parte2Decisao.msgCerta.removeAttribute('hidden');
       Parte2Decisao.link.removeAttribute('hidden');
       Parte2Decisao.decisao.setAttribute('disabled','true');

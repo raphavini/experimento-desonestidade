@@ -60,12 +60,9 @@ Parte1Decisao.prototype.save = function() {
   if(Parte1Decisao.decisao.value=='') {
     Parte1Decisao.msgErrada.removeAttribute('hidden');
   } else {
-    this.table = firebase.database().ref('/experiment/'+Parte1Decisao.experimentoChave+'/answer/'+QueryString.k+'/parte1');
+    this.table = firebase.database().ref('/experiment/'+Parte1Decisao.experimentoChave+'/participant/'+QueryString.k+'/answer/parte1');
 
-    var answer = {
-      value: Parte1Decisao.decisao.value,
-    };
-    this.table.set(answer).then(function(snapshot) {
+    this.table.set(Parte1Decisao.decisao.value).then(function(snapshot) {
       Parte1Decisao.msgCerta.removeAttribute('hidden');
       Parte1Decisao.link.removeAttribute('hidden');
       Parte1Decisao.buttonSave.setAttribute('hidden','');
