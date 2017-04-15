@@ -17,6 +17,8 @@ function Parte1Instrucoes(experimentoChave) {
 
   this.link = document.getElementById('link');
 
+  this.qtdTentativa = 0; 
+
   this.initFirebase();
 }
 
@@ -41,12 +43,21 @@ Parte1Instrucoes.prototype.getID = function() {
 
 // Saves a new message on the Firebase DB.
 Parte1Instrucoes.prototype.verify = function() {
+  Parte1Instrucoes.qtdTentativa = Parte1Instrucoes.qtdTentativa+1;
+
   Parte1Instrucoes.msgCerta.setAttribute('hidden','');
   Parte1Instrucoes.msgErrada.setAttribute('hidden','');
   if(Parte1Instrucoes.resposta.value==3) {
-    Parte1Instrucoes.msgCerta.removeAttribute('hidden');
-    Parte1Instrucoes.link.removeAttribute('hidden');
-    Parte1Instrucoes.buttonVerify.setAttribute('hidden','');
+
+    firebase.database().ref('/experiment/'+Parte1Instrucoes.experimentoChave+'/participant/'+QueryString.k+'/answer/parte1QtdTentativas')
+    .set(Parte1Instrucoes.qtdTentativa).then(function(snapshot) {
+      Parte1Instrucoes.msgCerta.removeAttribute('hidden');
+      Parte1Instrucoes.link.removeAttribute('hidden');
+      Parte1Instrucoes.buttonVerify.setAttribute('hidden','');
+    }).catch(function(error) {
+        console.error('Error writing new message to Firebase Database', error);
+        Parte1Instrucoes.error.removeAttribute('hidden');
+    });
   } else {
     Parte1Instrucoes.msgErrada.removeAttribute('hidden');
   }

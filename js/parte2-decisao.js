@@ -10,6 +10,7 @@ function Parte2Decisao(experimentoChave) {
   this.decisao = document.getElementById('decisao');
 
   this.msgErrada = document.getElementById('msg-errada');
+  this.msgErrada2 = document.getElementById('msg-errada2');
   this.msgCerta = document.getElementById('msg-certa');
   this.error = document.getElementById('error');
 
@@ -44,6 +45,8 @@ Parte2Decisao.prototype.save = function() {
   Parte2Decisao.error.setAttribute('hidden','');
   if(Parte2Decisao.decisao.value=='') {
     Parte2Decisao.msgErrada.removeAttribute('hidden');
+  } else if(Parte2Decisao.decisao.value>6 || Parte2Decisao.decisao.value<=0) {
+    Parte2Decisao.msgErrada2.removeAttribute('hidden');    
   } else {
     this.table = firebase.database().ref('/experiment/'+Parte2Decisao.experimentoChave+'/participant/'+QueryString.k+'/answer/parte2');
 

@@ -22,6 +22,8 @@ function Parte2Instrucoes(experimentoChave) {
 
   this.tipoGrupo = document.getElementById('tipo-grupo');
 
+  this.qtdTentativa = 0;
+
   this.initFirebase();
 }
 
@@ -46,6 +48,8 @@ Parte2Instrucoes.prototype.getID = function() {
 // Saves a new message on the Firebase DB.
 Parte2Instrucoes.prototype.verify = function() {
   
+  Parte2Instrucoes.qtdTentativa = Parte2Instrucoes.qtdTentativa+1;
+
   Parte2Instrucoes.msgCerta1.setAttribute('hidden','');
   Parte2Instrucoes.msgErrada1.setAttribute('hidden','');
   Parte2Instrucoes.msgCerta2.setAttribute('hidden','');
@@ -76,8 +80,13 @@ Parte2Instrucoes.prototype.verify = function() {
   }
 
   if(ok==2) {
-    Parte2Instrucoes.link.removeAttribute('hidden');
-    Parte2Instrucoes.buttonVerify.setAttribute('hidden','');    
+    firebase.database().ref('/experiment/'+Parte2Instrucoes.experimentoChave+'/participant/'+QueryString.k+'/answer/parte2QtdTentativas')
+    .set(Parte2Instrucoes.qtdTentativa).then(function(snapshot) {
+        Parte2Instrucoes.link.removeAttribute('hidden');
+        Parte2Instrucoes.buttonVerify.setAttribute('hidden','');
+    }).catch(function(error) {
+        console.error('Error writing new message to Firebase Database', error);
+    });    
   }
 };
 

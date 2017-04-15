@@ -6,10 +6,14 @@ var config = {
     messagingSenderId: "533864296923"
 };
 
+var version = 'v1.8';
+
 window.onload = function() {
   if(QueryString.err) {
     showError(QueryString.err);
   } else {
+    var footer = document.getElementById('footer');
+    footer.append(version);
     firebase.initializeApp(config);
     checkSetup();
     init();

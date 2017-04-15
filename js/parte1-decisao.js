@@ -15,6 +15,7 @@ function Parte1Decisao(experimentoChave) {
   this.buttonSave.addEventListener('click', this.save);
 
   this.msgErrada = document.getElementById('msg-errada');
+  this.msgErrada2 = document.getElementById('msg-errada2');
   this.msgCerta = document.getElementById('msg-certa');
   this.error = document.getElementById('error');
 
@@ -56,9 +57,12 @@ Parte1Decisao.prototype.getID = function() {
 Parte1Decisao.prototype.save = function() {
   Parte1Decisao.msgCerta.setAttribute('hidden','');
   Parte1Decisao.msgErrada.setAttribute('hidden','');
+  Parte1Decisao.msgErrada2.setAttribute('hidden','');
   Parte1Decisao.error.setAttribute('hidden','');
   if(Parte1Decisao.decisao.value=='') {
     Parte1Decisao.msgErrada.removeAttribute('hidden');
+  } else if(Parte1Decisao.decisao.value>6 || Parte1Decisao.decisao.value<=0) {
+    Parte1Decisao.msgErrada2.removeAttribute('hidden');
   } else {
     this.table = firebase.database().ref('/experiment/'+Parte1Decisao.experimentoChave+'/participant/'+QueryString.k+'/answer/parte1');
 

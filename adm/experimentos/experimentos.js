@@ -3,6 +3,8 @@
 // Initializes Experimento.
 function Experimento() {
   
+  this.seq = 1;
+
   // Shortcuts to DOM Elements.
   this.buttonStart = document.getElementById('button-start');
   this.buttonStart.addEventListener('click', this.startExperiment);
@@ -20,16 +22,20 @@ Experimento.prototype.loadTable = function() {
   var setExperiment = function(data) {
     var val = data.val();
 
+    var row = Experimento.experimentList.insertRow();
+    if(val.id) {
+      Experimento.seq=val.id+1;
+      var cell0 = row.insertCell();
+      cell0.append(val.id);
+    }
     if(val.start) {
-
-      var row = Experimento.experimentList.insertRow();
       var cell1 = row.insertCell();
       var cell2 = row.insertCell();
 
       var dt = new Date(val.start);
       var dtFormat = dt.getDate()+"/"+dt.getMonth()+"/"+dt.getYear()+" "+dt.getHours()+":"+dt.getMinutes()+":"+dt.getSeconds();
 
-      cell1.append(dtFormat)  ;
+      cell1.append(dtFormat);
       cell2.innerHTML = '<a id="'+data.key+'stop" name="'+data.key+'" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" hidden="">Parar</a><a id="'+data.key+'start" name="'+data.key+'" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Reiniciar</a>';
 
       this.buttonStart = document.getElementById(data.key+'start');
@@ -81,7 +87,7 @@ Experimento.prototype.initFirebase = function() {
 Experimento.prototype.startExperiment = function() {
   var hoje = new Date();
 
-  firebase.database().ref('/experiment/').push({start: hoje.getTime()}).then(function(snapshot) {
+  firebase.database().ref('/experiment/').push({id:Experimento.seq++, start: hoje.getTime()}).then(function(snapshot) {
     console.log('Experimento cadastrado');
     firebase.database().ref('/experiment/open').set(snapshot.key).then(function(snapshot) {
       console.log('Novo experimento aberto');  

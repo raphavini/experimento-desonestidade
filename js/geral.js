@@ -23,10 +23,11 @@ Geral.prototype.initFirebase = function() {
 // Saves a new message on the Firebase DB.
 Geral.prototype.saveParticipant = function() {
   this.table = this.database.ref('/experiment/'+this.experimentoChave+'/participant');
-  var datePush = new Date();
+  this.datePush = new Date();
   this.idUser = Math.round(Math.random()*100000);
   this.table.push({
-      id: this.idUser
+      id: this.idUser,
+      start: this.datePush.getTime()
   }).then(function(snapshot) {
       //Geral.userName.textContent=snapshot.child('id').val();
       Geral.userName.textContent=this.idUser;

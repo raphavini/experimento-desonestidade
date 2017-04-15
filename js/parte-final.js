@@ -10,6 +10,8 @@ function ParteFinal(experimentoChave) {
   this.valorReceber = document.getElementById('valor-receber');
   this.buttonLink = document.getElementById('button-link');
 
+  this.loading = document.getElementById("loading");
+
   this.initFirebase();
 }
 
@@ -30,6 +32,7 @@ ParteFinal.prototype.getID = function() {
 }
 ParteFinal.prototype.getPontos = function() {
   firebase.database().ref('/experiment/'+this.experimentoChave+'/participant/'+ QueryString.k+'/answer/').once('value').then(function(snapshot) {
+    ParteFinal.loading.setAttribute('hidden','');
     var pontosParte1 = 0;
     if(snapshot.val().parte1) {
       pontosParte1 = parseInt(snapshot.val().parte1);
@@ -42,6 +45,13 @@ ParteFinal.prototype.getPontos = function() {
     ParteFinal.pontos.textContent=pontos;
     ParteFinal.valorReceber.textContent=pontos;
   });
+  this.dateEnd = new Date();
+  firebase.database().ref('/experiment/'+this.experimentoChave+'/participant/'+QueryString.k+'/end/')
+    .set(this.dateEnd.getTime()).then(function(snapshot) {
+        console.info('Finish');
+    }).catch(function(error) {
+        console.error('Error writing new message to Firebase Database', error);
+    });
 }
 
 function init() {
